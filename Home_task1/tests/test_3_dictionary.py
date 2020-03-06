@@ -27,11 +27,10 @@ class TestDictionary:
         assert dict_for_test_copy_t3.get(4) == 'd'
 
     @staticmethod
-    def test_dict_4_pop():
-        """function to check pop in dictionary"""
+    def test_dict_4_keys():
+        """function to check keys in dictionary"""
         dict_for_test_copy_t4 = DICT_FOR_TEST.copy()
-        dict_for_test_copy_t4.pop(3)
-        assert dict_for_test_copy_t4.get(3) is None
+        assert list(dict_for_test_copy_t4.keys()) == [1, 2, 3]
 
     @staticmethod
     @pytest.mark.parametrize('id_for_pop', [3, 2, 1])

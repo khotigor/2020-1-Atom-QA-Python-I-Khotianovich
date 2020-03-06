@@ -3,3 +3,5 @@ pycache
 *.pyc
 .idea
 .DS_Store
+Pipfile.lock
+Pipfile

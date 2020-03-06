@@ -28,7 +28,7 @@ class TestInt:
     @staticmethod
     def test_int_4_abs():
         """function to check abs in int"""
-        assert abs(-1) > 0
+        assert abs(-1) == 1
 
     @staticmethod
     @pytest.mark.parametrize('i', [random.randint(3, 5),
