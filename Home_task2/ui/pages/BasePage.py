@@ -33,3 +33,9 @@ class BasePage:
         if timeout is None:
             timeout = 5
         return WebDriverWait(self.driver, timeout=timeout)
+
+    def input_data(self, data, locator):
+        field = self.find(locator)
+        self.click(locator)
+        field.clear()
+        field.send_keys(data)

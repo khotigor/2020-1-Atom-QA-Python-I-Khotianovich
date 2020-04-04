@@ -1,8 +1,12 @@
+import os
+
 import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
-from ui.pages.AuthorizationPage import AuthorizationPage
+from ui.pages.AuthorizationPage import *
+from data.Data import EMAIL, PASSWORD
+from ui.pages.AuthorizedPage import AuthorizedPage
 
 
 class NotChrome(Exception):
@@ -36,3 +40,18 @@ def driver(config):
 @pytest.fixture(scope="function")
 def authorization_page(driver):
     return AuthorizationPage(driver)
+
+
+@pytest.fixture(scope="function")
+def authorization(driver):
+    page = AuthorizationPage(driver)
+    page.authorization(EMAIL, PASSWORD)
+    return AuthorizedPage(page.driver)
+
+
+@pytest.fixture(scope="function")
+def download_file():
+    current_path = os.path.abspath(__file__)
+    path = os.path.join(current_path, "..", "..", "data", "freddie.png")
+    path = os.path.abspath(path)
+    return path

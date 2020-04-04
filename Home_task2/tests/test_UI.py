@@ -1,7 +1,6 @@
 import pytest
-
 from tests.base_UI import BaseCase
-from data.Data import *
+from data.Data import EMAIL, PASSWORD
 
 
 class Test(BaseCase):
@@ -19,4 +18,7 @@ class Test(BaseCase):
             self.authorization_page.locators.CHECK_AUTH_FAILED)
         assert check is not None
 
-
+    @pytest.mark.UI
+    def test_create_advertising_campaign(self, authorization, download_file):
+        self.authorized_page = authorization
+        assert self.authorized_page.create_campaign(download_file)
