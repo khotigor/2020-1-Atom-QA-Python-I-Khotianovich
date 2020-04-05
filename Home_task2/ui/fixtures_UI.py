@@ -27,16 +27,17 @@ def driver(config):
             manager = ChromeDriverManager(version=version)
             driver = webdriver.Chrome(executable_path=manager.install())
         else:
-            capabilities = {
-                'browserName': browser,
-                'version': '80.0'
-            }
             options = ChromeOptions()
+            capabilities = {'acceptInsecureCerts': True,
+                            'browserName': 'chrome',
+                            'version': '80.0',
+                            }
             driver = webdriver.Remote(command_executor=selenoid,
                                       options=options,
                                       desired_capabilities=capabilities)
     else:
         raise NotChrome("Sorry, work only with chrome")
+
     driver.maximize_window()
     driver.get(url)
     yield driver
