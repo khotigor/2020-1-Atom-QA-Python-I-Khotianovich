@@ -27,3 +27,32 @@ class CreateAdvertisingCampaignLocators:
     BUTTON_CREATE = (By.XPATH, '//div[contains(text(), "Создать кампанию")]')
     CHECK = (By.XPATH,
              '//a[contains(@class, "campaigns-tbl-cell__campaign-name")]')
+
+
+class CreateSegmentLocators:
+    AUDITORIUMS = (By.XPATH,
+                   '//a[contains(@href, "/segments")]')
+    CREATE_SEGMENT_BUTTON = (By.PARTIAL_LINK_TEXT, 'Создайте')
+    CREATE_SEGMENT_BUTTON_NOT_FIRST = (
+        By.XPATH, '// div[contains(text(), "Создать сегмент")]')
+    NAME_EDIT = (By.XPATH, '// div[contains(@class , "input__wrap")]/' +
+                 'input[contains(@maxlength, "60")]')
+    ADD_AUDITORIUM_SEGMENT = (By.XPATH, '//span[contains(@data-loc-ru,' +
+                              '"Добавить аудиторные сегменты...")]')
+    APPS_CHOICE = (By.XPATH, '/html/body/div[1]/div[4]/div/div[2]/div/div[2]' +
+                   '/div/div[2]/div[1]/div[9]')
+    PLAYED_CHOICE = (By.CLASS_NAME, 'js-source-name')
+    PAYED_CHOICE = (By.XPATH,
+                    '//span[contains(@data-loc-ru,"Платившие в платформе")]')
+    ADD_SEGMENT = (By.XPATH,
+                   '//div[contains(text(), "Добавить сегмент")]')
+    CREATE_SEGMENT = (By.XPATH, '//div[contains(text(), "Создать сегмент")]')
+
+
+class DeleteSegmentLocators:
+    AUDITORIUMS = (By.XPATH,
+                   '//a[contains(@href, "/segments")]')
+    SEARCH_EDIT = (By.CLASS_NAME, 'suggester-ts__input')
+    CROSS = (By.XPATH,
+             '//div[contains(@class, "remove-source-wrap js-remove-source")]')
+    DELETE_BUTTON = (By.XPATH, '//div[contains(text(), "Удалить")]')

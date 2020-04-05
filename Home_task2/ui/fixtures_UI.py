@@ -1,4 +1,5 @@
 import os
+import random
 
 import pytest
 from selenium import webdriver
@@ -7,6 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from ui.pages.AuthorizationPage import *
 from data.Data import EMAIL, PASSWORD
 from ui.pages.AuthorizedPage import AuthorizedPage
+from selenium.webdriver import ChromeOptions
 
 
 class NotChrome(Exception):
@@ -16,19 +18,23 @@ class NotChrome(Exception):
 @pytest.fixture(scope="function")
 def driver(config):
     browser = config["browser"]
+    version = config['version']
     selenoid = config["selenoid"]
     url = config["url"]
 
     if browser == "chrome":
         if not selenoid:
-            manager = ChromeDriverManager()
+            manager = ChromeDriverManager(version=version)
             driver = webdriver.Chrome(executable_path=manager.install())
         else:
-            cap = {"browserName": browser, "version": "80.0"}
-            options = webdriver.ChromeOptions()
+            capabilities = {
+                'browserName': browser,
+                'version': '80.0'
+            }
+            options = ChromeOptions()
             driver = webdriver.Remote(command_executor=selenoid,
                                       options=options,
-                                      desired_capabilities=cap)
+                                      desired_capabilities=capabilities)
     else:
         raise NotChrome("Sorry, work only with chrome")
     driver.maximize_window()
@@ -55,3 +61,13 @@ def download_file():
     path = os.path.join(current_path, "..", "..", "data", "freddie.png")
     path = os.path.abspath(path)
     return path
+
+
+@pytest.fixture(scope="function")
+def create_name_of_segment_for_add():
+    return "MySegment" + str(random.randint(0, 1000))
+
+
+@pytest.fixture(scope="function")
+def create_name_of_segment_for_delete():
+    return "MySegment" + str(random.randint(-1000, -1))
