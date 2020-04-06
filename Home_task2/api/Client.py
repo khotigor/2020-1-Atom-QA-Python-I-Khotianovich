@@ -3,7 +3,8 @@ import random
 import requests
 from urllib.parse import urljoin
 
-NAME_OF_SEGMENT = "MySegmentFromAPI" + str(random.randint(-1000, -1))
+NAME_OF_SEGMENT_TO_ADD = "MySegmentFromAPI" + str(random.randint(0, 1000))
+NAME_OF_SEGMENT_TO_DELETE = "MySegmentFromAPI" + str(random.randint(-1000, -1))
 
 
 class ResponseStatusException(Exception):
@@ -54,9 +55,18 @@ class Client:
         self.get_token()
         return response
 
-    def create_segment(self):
+    def create_segment(self, name):
+        location = 'api/v2/remarketing/segments.json'
+
+        headers = {
+            'Content-Type': 'application/json',
+            'Referer': 'https://target.my.com/segments/segments_list/new',
+            'X-CSRFToken': self.csrf_token,
+            'X-Requested-With': 'XMLHttpRequest',
+        }
+
         data = {
-            'name': '{name}'.format(name=NAME_OF_SEGMENT),
+            'name': '{name}'.format(name=name),
             'pass_condition': 1,
             'relations':
                 [
@@ -69,15 +79,15 @@ class Client:
                 ],
             'logicType': "or"
         }
+        return self._request('POST', location, headers=headers, data=data,
+                             json=True)
 
+    def delete_segment(self, id_segment):
+        location = 'api/v2/remarketing/segments/{id}.json'.format(
+            id=id_segment)
         headers = {
-            'Content-Type': 'application/json',
-            'Referer': 'https://target.my.com/segments/segments_list/new',
+            'Referer': 'https://target.my.com/segments/segments_list',
             'X-CSRFToken': self.csrf_token,
             'X-Requested-With': 'XMLHttpRequest',
         }
-
-        location = 'api/v2/remarketing/segments.json'
-
-        return self._request('POST', location, headers=headers, data=data,
-                             json=True)
+        return self._request('DELETE', location, headers=headers)
