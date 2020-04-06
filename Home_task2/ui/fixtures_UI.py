@@ -66,7 +66,7 @@ def download_file():
 
 @pytest.fixture(scope="function")
 def create_name_of_segment_for_add():
-    return "MySegment" + str(random.randint(0, 1000))
+    return "MySegmentFromUI" + str(random.randint(0, 1000))
 
 
 @pytest.fixture(scope="function")

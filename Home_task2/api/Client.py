@@ -1,10 +1,5 @@
-import random
-
 import requests
 from urllib.parse import urljoin
-
-NAME_OF_SEGMENT_TO_ADD = "MySegmentFromAPI" + str(random.randint(0, 1000))
-NAME_OF_SEGMENT_TO_DELETE = "MySegmentFromAPI" + str(random.randint(-1000, -1))
 
 
 class ResponseStatusException(Exception):
