@@ -35,7 +35,6 @@ class Client:
         }
 
         data = {
-            'csrfmiddlewaretoken': self.csrf_token,
             'login': self.user,
             'password': self.password,
             'continue': 'https://account.my.com/login_continue/?continue=https%3A%2F%2Faccount.my.com',
@@ -43,4 +42,5 @@ class Client:
         }
         response = self._request('POST', location, headers=headers,
                                  data=data).url
-        return response
+        self.get_token()
+        return self.csrf_token
