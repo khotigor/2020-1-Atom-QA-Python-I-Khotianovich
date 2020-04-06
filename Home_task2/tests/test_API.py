@@ -1,4 +1,5 @@
 import pytest
+import requests
 
 from api.Client import Client
 from data.Data import EMAIL, PASSWORD
@@ -7,8 +8,11 @@ from data.Data import EMAIL, PASSWORD
 class Test:
     @pytest.fixture(scope='function')
     def api_client(self):
-        return Client()
+        user = EMAIL
+        password = PASSWORD
+        return Client(user, password)
 
     def test(self, api_client):
-        print("Start")
-        api_client.get_token()
+        result = api_client.login()
+        print(result)
+
