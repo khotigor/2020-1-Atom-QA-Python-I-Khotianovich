@@ -12,7 +12,11 @@ class Test:
         password = PASSWORD
         return Client(user, password)
 
-    def test(self, api_client):
-        result = api_client.login()
-        print(result)
+    # def test(self, api_client):
+    #     result = api_client.login()
+    #     print(result)
+
+    @pytest.mark.API
+    def test_create_segment(self, api_client):
+        assert api_client.create_segment().status_code == 200
 

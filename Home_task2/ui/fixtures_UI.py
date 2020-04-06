@@ -71,4 +71,4 @@ def create_name_of_segment_for_add():
 
 @pytest.fixture(scope="function")
 def create_name_of_segment_for_delete():
-    return "MySegment" + str(random.randint(-1000, -1))
+    return "MySegmentFromUI" + str(random.randint(-1000, -1))
