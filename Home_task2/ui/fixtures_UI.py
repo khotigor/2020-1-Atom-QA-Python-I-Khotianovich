@@ -1,5 +1,4 @@
 import os
-import random
 
 import pytest
 from selenium import webdriver
@@ -50,9 +49,9 @@ def authorization_page(driver):
 
 
 @pytest.fixture(scope="function")
-def authorization(driver):
+def authorized_page(driver):
     page = AuthorizationPage(driver)
-    page.authorization(EMAIL, PASSWORD)
+    page.authorize(EMAIL, PASSWORD)
     return AuthorizedPage(page.driver)
 
 
@@ -62,13 +61,3 @@ def download_file():
     path = os.path.join(current_path, "..", "..", "data", "freddie.png")
     path = os.path.abspath(path)
     return path
-
-
-@pytest.fixture(scope="function")
-def create_name_of_segment_for_add():
-    return "MySegmentFromUI" + str(random.randint(0, 1000))
-
-
-@pytest.fixture(scope="function")
-def create_name_of_segment_for_delete():
-    return "MySegmentFromUI" + str(random.randint(-1000, -1))

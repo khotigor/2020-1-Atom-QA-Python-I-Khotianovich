@@ -74,8 +74,10 @@ class Client:
                 ],
             'logicType': "or"
         }
-        return self._request('POST', location, headers=headers, data=data,
-                             json=True)
+        request = self._request('POST', location, headers=headers, data=data,
+                                json=True)
+        request.json()
+        return request
 
     def delete_segment(self, id_segment):
         location = 'api/v2/remarketing/segments/{id}.json'.format(

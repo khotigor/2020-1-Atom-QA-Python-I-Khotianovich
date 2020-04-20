@@ -7,7 +7,7 @@ from ui.locators.locators_UI import AuthorizationLocators
 class AuthorizationPage(BasePage):
     locators = AuthorizationLocators()
 
-    def authorization(self, email, password):
+    def authorize(self, email, password):
         self.click(self.locators.FULL_PENETRATION_BUTTON)
         email_field = self.find(self.locators.EMAIL_FIELD)
         password_field = self.find(self.locators.PASSWORD_FIELD)

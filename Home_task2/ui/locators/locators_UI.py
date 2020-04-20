@@ -29,6 +29,24 @@ class CreateAdvertisingCampaignLocators:
              '//a[contains(@class, "campaigns-tbl-cell__campaign-name")]')
 
 
+class DeleteAdvertisingCampaignLocators:
+    SEARCH = (By.XPATH, '//input[contains(@class, ' +
+              '"suggester-module-searchInput-1dyLvN input-module-input-1' +
+              'xGLR8 suggester-module-withClearIcon-2DhXUT")]')
+    SUGGEST = (By.XPATH, '//span[contains(@class,suggester-ts__item__id) ' +
+               'and contains(@title, "I love Freddie")]')
+    SELECT_ALL = (By.XPATH,
+                  '//input[@class="flexi-table-nt__header__checkbox ' +
+                  'js-flexi-table_header_checkbox"]')
+    ACTION = (
+        By.XPATH,
+        '//div[@class="button__text" and contains(text(), "Действия")]')
+    DELETE = (
+        By.XPATH,
+        '//span[@class="drop-down-item-view__name js-item-name" and' +
+        ' contains(text(), "Удалить")]')
+
+
 class CreateSegmentLocators:
     AUDITORIUMS = (By.XPATH,
                    '//a[contains(@href, "/segments")]')
@@ -39,8 +57,6 @@ class CreateSegmentLocators:
                  'input[contains(@maxlength, "60")]')
     ADD_AUDITORIUM_SEGMENT = (By.XPATH, '//span[contains(@data-loc-ru,' +
                               '"Добавить аудиторные сегменты...")]')
-    APPS_CHOICE = (By.XPATH, '/html/body/div[1]/div[4]/div/div[2]/div/div[2]' +
-                   '/div/div[2]/div[1]/div[9]')
     PLAYED_CHOICE = (By.CLASS_NAME, 'js-source-name')
     PAYED_CHOICE = (By.XPATH,
                     '//span[contains(@data-loc-ru,"Платившие в платформе")]')
