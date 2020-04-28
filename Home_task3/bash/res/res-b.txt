@@ -1,0 +1,19 @@
+/Users/igorkhotyanovich/projects/2020-1-Atom-QA-Python-I-Khotianovich/Home_task3/data/*.log
+GET
+    3959
+HEAD
+      41
+POST
+       0
+PUT
+       0
+DELETE
+       0
+TRACE
+       0
+OPTIONS
+       0
+CONNECT
+       0
+PATCH
+       0
