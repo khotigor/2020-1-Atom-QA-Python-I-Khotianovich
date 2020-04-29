@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash_parser
 echo
 
 
@@ -100,6 +100,8 @@ case "$1" in
 
 -h)
   echo
+  echo "Nginx logs parser"
+  echo
   echo "Keys:"
   echo "-a - Total number of requests"
   echo "-b - Number of queries by type"
@@ -110,8 +112,8 @@ case "$1" in
   echo
   shift ;;
 
-
 *) echo "$1 is not an option" ;;
+
 esac
 echo
 echo
