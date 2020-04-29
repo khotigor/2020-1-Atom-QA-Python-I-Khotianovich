@@ -107,7 +107,7 @@ case "$1" in
   echo "-b - Number of queries by type"
   echo "-c - Top 10 Biggest Queries"
   echo "-d - Top 10 quantity requests that ended with a client error"
-  echo "-e - Top 10 quantity requests that ended with a client error"
+  echo "-e - Top 10 requests that ended with a client error by size"
   echo "-h - help"
   echo
   shift ;;

@@ -44,7 +44,7 @@ Keys:
 
 `-d - Top 10 quantity requests that ended with a client error`
 
-`-e - Top 10 quantity requests that ended with a client error`
+`-e - Top 10 requests that ended with a client error by size`
 
 `-h - Help`
 

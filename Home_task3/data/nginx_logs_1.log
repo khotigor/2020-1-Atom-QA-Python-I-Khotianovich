@@ -998,7 +998,7 @@
 94.23.21.169 - - [17/May/2015:16:05:57 +0000] "GET /downloads/product_2 HTTP/1.1" 404 339 "-" "Debian APT-HTTP/1.3 (0.9.7.9)"\
 83.42.24.252 - - [17/May/2015:16:05:41 +0000] "GET /downloads/product_2 HTTP/1.1" 304 0 "-" "Debian APT-HTTP/1.3 (0.8.16~exp12ubuntu10.14)"\
 213.135.92.86 - - [17/May/2015:16:05:10 +0000] "GET /downloads/product_1 HTTP/1.1" 404 334 "-" "Debian APT-HTTP/1.3 (0.9.7.9)"\
-:06:35 +0000] "GET /downloads/product_1 HTTP/1.1" 404 334 "-" "Debian APT-HTTP/1.3 (0.8.16~exp12ubuntu10.22)"}92.63.172.59 - - [17/May/2015:16:05:56 +0000] "GET /downloads/product_2 HTTP/1.1" 404 336 "-" "Debian APT-HTTP/1.3 (1.0.1ubuntu2)"\
+92.63.172.59 - - [17/May/2015:16:05:56 +0000] "GET /downloads/product_2 HTTP/1.1" 404 336 "-" "Debian APT-HTTP/1.3 (1.0.1ubuntu2)"\
 202.143.95.26 - - [17/May/2015:16:05:41 +0000] "GET /downloads/product_2 HTTP/1.1" 404 334 "-" "Debian APT-HTTP/1.3 (0.8.16~exp12ubuntu10.16)"\
 84.208.15.12 - - [17/May/2015:16:05:25 +0000] "GET /downloads/product_1 HTTP/1.1" 404 331 "-" "Debian APT-HTTP/1.3 (0.8.16~exp12ubuntu10.21)"\
 202.78.200.137 - - [17/May/2015:16:05:23 +0000] "GET /downloads/product_2 HTTP/1.1" 404 337 "-" "Debian APT-HTTP/1.3 (1.0.1ubuntu2)"\
