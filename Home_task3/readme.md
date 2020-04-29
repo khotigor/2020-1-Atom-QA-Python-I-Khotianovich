@@ -29,9 +29,7 @@
 
 Результат будет записан в файл формата: `res-'ключ'.txt`
 
-
 _____
-
 
 Keys:
 
@@ -63,8 +61,12 @@ or
 Specify it and click "return".
 
 
-The result will be written to a format file: `res-'ключ'.txt`
+The result will be written to a format file: `res-'key'.txt`
 
 # Python:
 
+Запустите parse.py и просто следуйте диалоговому окну.
 
+_____
+
+Run parse.py and just follow the dialog box.

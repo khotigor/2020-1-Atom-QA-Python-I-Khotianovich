@@ -2,7 +2,28 @@
 My parser for .log files
 """
 import os
-from collections import Counter
+import json
+
+
+def open_and_write(file, list_to_write):
+    f = open(file, 'w')
+    for i in range(len(list_to_write)):
+        f.write(str(list_to_write[i][6]) + ' ' + str(
+            list_to_write[i][8]) + ' ' + str(list_to_write[i][9]))
+        f.write('\n')
+    f.close()
+    print('Finished')
+    print()
+
+
+def open_and_write_json(file, list_to_write):
+    f = open(file, 'w')
+    for i in range(len(list_to_write)):
+        res = list_to_write[i][6:10]
+        json.dump(res, f)
+    f.close()
+    print('Finished')
+    print()
 
 
 class Parser(object):
@@ -121,11 +142,3 @@ class Parser(object):
                 res_list.append(self.log_list[i])
         result = res_list[0:10]
         return result
-
-
-parser = Parser('/Users/igorkhotyanovich/projects/2020-1-Atom-QA-Python-I-' +
-                'Khotianovich/Home_task3/data', None)
-parser.is_file_func()
-parser.gen_list()
-
-print(parser.top_quantity_client_error())
