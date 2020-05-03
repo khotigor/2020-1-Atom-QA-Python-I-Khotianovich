@@ -1,4 +1,6 @@
-pytest-xdist
+pymysql
+pymysql
+pymysql
 appdirs==1.4.3
 astroid==2.3.3
 attrs==19.3.0
@@ -27,6 +29,7 @@ pyflakes==2.1.1
 pylint==2.4.4
 pyparsing==2.4.6
 pytest==5.3.5
+pytest-xdist
 requests==2.23.0
 selenium==3.141.0
 six==1.14.0

@@ -1,3 +1,7 @@
 pytest==5.3.5
 pytest-xdist==1.31.0
+module==0.0.4
+mock==4.0.2
+json
 os
+sqlalchemy

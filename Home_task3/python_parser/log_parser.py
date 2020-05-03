@@ -78,8 +78,7 @@ class Parser(object):
 
     def count_number_of_requests(self):
         """-a - Total number of requests"""
-        return "{path} \n {number}".format(path=(self.path + '/*.log'),
-                                           number=len(self.log_list))
+        return int(len(self.log_list))
 
     def number_of_each_type(self):
         """-b - Number of queries by type"""

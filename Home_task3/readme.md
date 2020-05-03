@@ -70,3 +70,17 @@ The result will be written to a format file: `res-'key'.txt`
 _____
 
 Run parse.py and just follow the dialog box.
+
+
+# MySQL:
+
+Для записи парсинга логов в БД укажите путь к файлу/дирректории в файле tests/test_orm_mysql.py (строка 14).
+Затем запустите:
+ `pytest -s -l -v -m 'db_log' ` 
+ Результат быдет в БД `igor_test_db`
+ _____
+ 
+To record log parsing in the database, specify the path to the file / directory in the tests / test_orm_mysql.py file (line 14).
+Then run:
+ `pytest -s -l -v -m 'db_log' ` 
+ Result will be in `igor_test_db`
