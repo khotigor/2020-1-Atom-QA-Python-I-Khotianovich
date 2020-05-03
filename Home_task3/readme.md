@@ -14,7 +14,7 @@
 
 `-h - Помощь`
 
-При выборе любого ключа скрипт попросит указать путь до файла или дирректории.
+При выборе любого ключа скрипт попросит указать путь до файла или директории.
 Пример:
 
 `/Users/igorkhotyanovich/projects/2020-1-Atom-QA-Python-I-Khotianovich/Home_task3/data/nginx_logs_1.log`
@@ -24,7 +24,7 @@
 `/Users/igorkhotyanovich/projects/2020-1-Atom-QA-Python-I-Khotianovich/Home_task3/data`
 
 
-Укажите его и нажмитер return.
+Укажите его и нажмите return.
 
 
 Результат будет записан в файл формата: `res-'ключ'.txt`
@@ -74,10 +74,10 @@ Run parse.py and just follow the dialog box.
 
 # MySQL:
 
-Для записи парсинга логов в БД укажите путь к файлу/дирректории в файле tests/test_orm_mysql.py (строка 14).
+Для записи парсинга логов в БД укажите путь к файлу/директории в файле tests/test_orm_mysql.py (строка 14).
 Затем запустите:
  `pytest -s -l -v -m 'db_log' ` 
- Результат быдет в БД `igor_test_db`
+ Результат будет в БД `igor_test_db`
  _____
  
 To record log parsing in the database, specify the path to the file / directory in the tests / test_orm_mysql.py file (line 14).
