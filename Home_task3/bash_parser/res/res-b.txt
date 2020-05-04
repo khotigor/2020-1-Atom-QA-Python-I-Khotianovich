@@ -1,8 +1,8 @@
-/Users/igorkhotyanovich/projects/2020-1-Atom-QA-Python-I-Khotianovich/Home_task3/data/nginx_logs_1.log
+/Users/igorkhotyanovich/projects/2020-1-Atom-QA-Python-I-Khotianovich/Home_task3/data/*.log
 GET
-    1961
+    3959
 HEAD
-      39
+      41
 POST
        0
 PUT

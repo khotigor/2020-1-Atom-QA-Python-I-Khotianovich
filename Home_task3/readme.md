@@ -78,9 +78,33 @@ Run parse.py and just follow the dialog box.
 Затем запустите:
  `pytest -s -l -v -m 'db_log' ` 
  Результат будет в БД `igor_test_db`
+ 
+При необходимости замените логин и пароль в conftest.py (строка 12).
  _____
  
 To record log parsing in the database, specify the path to the file / directory in the tests / test_orm_mysql.py file (line 14).
 Then run:
  `pytest -s -l -v -m 'db_log' ` 
  Result will be in `igor_test_db`
+ 
+# Mock:
+
+Запуск через pytest. 
+ `pytest -s -l -v -m 'mock' ` 
+
+___
+Run from pytest.  `pytest -s -l -v -m 'mock' ` 
+
+# Linux:
+Запуск через pytest. 
+ `pytest -s -l -v -m 'linux' ` 
+
+___
+Run from pytest.  `pytest -s -l -v -m 'linux' ` 
+
+
+
+
+
+
+

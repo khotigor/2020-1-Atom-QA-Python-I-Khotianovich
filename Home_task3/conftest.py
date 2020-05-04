@@ -1,6 +1,7 @@
 import pytest
 import requests
 
+from linux.remote_commands import SSH
 from mysql_orm.mysql_orm_client import MysqlOrmConnection
 from my_mock import mock
 from socket_client.http_socket_client import ClientHttp
@@ -28,3 +29,10 @@ def http_client():
     http_client = ClientHttp()
     http_client.run()
     return http_client
+
+
+@pytest.fixture(scope='session')
+def linux_client():
+    with SSH(hostname='192.168.1.77', username='centos', password='centos',
+             port=2233) as host:
+        yield host

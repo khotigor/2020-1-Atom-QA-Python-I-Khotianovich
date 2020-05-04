@@ -3,7 +3,6 @@ import threading
 from flask import Flask, abort, request
 
 app = Flask(__name__)
-# users = {}
 users = {}
 host = '127.0.0.1'
 port = 5000
@@ -30,6 +29,15 @@ def get_user_by_id(user_id: int):
         return user
     else:
         abort(404)
+
+
+@app.route('/users', methods=['POST'])
+def post_user():
+    name = request.form['name']
+    surname = request.form['surname']
+    data = {'name': name, 'surname': surname}
+    users.update({len(users): data})
+    return data
 
 
 @app.route('/shutdown')
