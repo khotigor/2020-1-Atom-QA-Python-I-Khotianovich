@@ -1,3 +1,5 @@
+import time
+
 import pytest
 import requests
 
@@ -20,3 +22,15 @@ class TestMock:
 
         result = requests.get(url, user)
         assert result.json() == user
+
+    def test_http_client_get(self, mock_server, http_client):
+        user = {'name': 'Ilya', 'surname': 'Kirillov'}
+        add_user(1, user)
+        res = http_client.get_user('/user/1')
+        assert res['user'] == user
+
+    # def test_http_client_post(self, mock_server, http_client):
+    #     user = {'name': 'Ilya2', 'surname': 'Kirillov2'}
+    #     http_client.post_user(user)
+    #     res = http_client.get_user('/user')
+    #     assert res['user'] == user

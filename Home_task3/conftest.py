@@ -3,6 +3,7 @@ import requests
 
 from mysql_orm.mysql_orm_client import MysqlOrmConnection
 from my_mock import mock
+from socket_client.http_socket_client import ClientHttp
 
 
 @pytest.fixture(scope='session')
@@ -20,3 +21,10 @@ def mock_server():
 
     shutdown_url = f'http://{server_host}:{server_port}/shutdown'
     requests.get(shutdown_url)
+
+
+@pytest.fixture(scope='session')
+def http_client():
+    http_client = ClientHttp()
+    http_client.run()
+    return http_client
