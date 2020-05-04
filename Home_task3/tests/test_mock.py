@@ -16,9 +16,9 @@ class TestMock:
         server_host, server_port = mock_server
 
         user = {'name': 'Ilya', 'surname': 'Kirillov'}
-        add_user(1, user)
+        add_user(0, user)
 
-        url = f'http://{server_host}:{server_port}/user/1'
+        url = f'http://{server_host}:{server_port}/users/0'
 
         result = requests.get(url, user)
         assert result.json() == user
@@ -26,11 +26,5 @@ class TestMock:
     def test_http_client_get(self, mock_server, http_client):
         user = {'name': 'Ilya', 'surname': 'Kirillov'}
         add_user(1, user)
-        res = http_client.get_user('/user/1')
+        res = http_client.get_user('/users/1')
         assert res['user'] == user
-
-    # def test_http_client_post(self, mock_server, http_client):
-    #     user = {'name': 'Ilya2', 'surname': 'Kirillov2'}
-    #     http_client.post_user(user)
-    #     res = http_client.get_user('/user')
-    #     assert res['user'] == user

@@ -14,15 +14,6 @@ class ClientHttp:
         self.client.settimeout(0.1)
         self.client.connect((self.target_host, self.target_port))
 
-    def post_user(self, user):
-        values = f'name={user["name"]}&surname={user["surname"]}'
-        data = (f"POST {'/user/2'} HTTP/1.1\r\n"  
-                "Content-Type: application/x-www-form-urlencoded;\r\n"
-                f"Content-Length: {len(values)}\r\n"
-                "\r\n"
-                f"{values}\r\n")
-        self.client.send(data.encode())
-
     def get_user(self, user):
         request = f'GET {user} HTTP/1.1\r\nHost:{self.target_host}\r\n\r\n'
         self.client.send(request.encode())

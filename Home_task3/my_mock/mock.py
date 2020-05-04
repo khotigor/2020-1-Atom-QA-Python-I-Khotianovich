@@ -10,7 +10,8 @@ port = 5000
 
 
 def run_mock():
-    server = threading.Thread(target=app.run, kwargs={'host': host, 'port': port})
+    server = threading.Thread(target=app.run,
+                              kwargs={'host': host, 'port': port})
     server.start()
     return server
 
@@ -21,7 +22,7 @@ def shutdown_mock():
         terminate_func()
 
 
-@app.route('/user/<user_id>')
+@app.route('/users/<user_id>')
 def get_user_by_id(user_id: int):
     user = users.get(str(user_id), None)
     if user:
