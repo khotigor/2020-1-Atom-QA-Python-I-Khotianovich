@@ -1,9 +1,11 @@
 import os
+import random
 
 import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 
+from functions import create_name_of_segment
 from ui.pages.AuthorizationPage import *
 from data.Data import EMAIL, PASSWORD
 from ui.pages.AuthorizedPage import AuthorizedPage
@@ -12,6 +14,9 @@ from selenium.webdriver import ChromeOptions
 
 class NotChrome(Exception):
     pass
+
+
+NAME_OF_CAMPAIGN = "I love Freddie" + str(random.randint(-1000, 1000))
 
 
 @pytest.fixture(scope="function")
@@ -61,3 +66,18 @@ def download_file():
     path = os.path.join(current_path, "..", "..", "data", "freddie.png")
     path = os.path.abspath(path)
     return path
+
+
+@pytest.fixture(scope='function')
+def advertising_campaign_request(authorized_page, download_file):
+    authorized_page = authorized_page
+    yield authorized_page.create_campaign(download_file, NAME_OF_CAMPAIGN)
+    authorized_page.delete_campaign(NAME_OF_CAMPAIGN)
+
+
+@pytest.fixture(scope='function')
+def create_segment_request(authorized_page):
+    authorized_page = authorized_page
+    name = create_name_of_segment('UI', 0, 1000)
+    yield authorized_page.create_segment(name)
+    authorized_page.delete_segment(name)

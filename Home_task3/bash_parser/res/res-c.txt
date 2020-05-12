@@ -1,0 +1,11 @@
+/Users/igorkhotyanovich/projects/2020-1-Atom-QA-Python-I-Khotianovich/Home_task3/data/*.log
+/downloads/product_1 200 86166026
+/downloads/product_1 200 85619205
+/downloads/product_1 200 85619205
+/downloads/product_1 200 85619205
+/downloads/product_1 200 85619205
+/downloads/product_1 200 85619205
+/downloads/product_1 200 85619205
+/downloads/product_1 200 81860793
+/downloads/product_1 200 69015367
+/downloads/product_1 200 64573584

@@ -73,9 +73,5 @@ class AuthorizedPage(BasePage):
         self.click(self.locatorsDSL.CROSS)
         self.click(self.locatorsDSL.DELETE_BUTTON)
         self.click(self.locatorsDSL.AUDITORIUMS)
-        try:
-            check = (By.PARTIAL_LINK_TEXT, name)
-            self.find(check).is_displayed()
-            return False
-        except:
-            return True
+        check = (By.PARTIAL_LINK_TEXT, name)
+        return self.find(check)
