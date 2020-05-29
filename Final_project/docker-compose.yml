@@ -1,0 +1,59 @@
+version: "2.1"
+
+networks:
+  selen_net:
+    external: true
+    name: selen_net
+
+services:
+
+  python_mock:
+    container_name: python_mock
+    build: docker/python_mock/
+    command: python3 my_mock.py
+    ports:
+    - 5000:5000
+    networks:
+      - selen_net
+
+  docker_mysql:
+    container_name: docker_mysql
+    build: docker/mysql/
+    ports:
+    - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: qwerasdf
+      MYSQL_DATABASE: technoatom
+      MYSQL_USER: test_qa
+      MYSQL_PASSWORD: qa_test
+    networks:
+      - selen_net
+
+  myapp:
+    container_name: myapp
+    image: myapp
+    command: /bin/sh -c 'sleep 10 && /app/myapp --config=/conf/CONFIG_FILE'
+    volumes:
+    - './conf:/conf:ro'
+    ports:
+    - 3320:3320
+    depends_on:
+      - docker_mysql
+    networks:
+      - selen_net
+
+  selenoid:
+    image: "aerokube/selenoid"
+    container_name: "selenoid"
+    networks:
+      - selen_net
+    volumes:
+      - "./selenoid:/etc/selenoid"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./selenoid/video:/opt/selenoid/video"
+      - "./selenoid/logs:/opt/selenoid/logs"
+    environment:
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/path/to/config/video
+    command: ["-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs", "-container-network", "selen_net"]
+    ports:
+      - "4444:4444"
